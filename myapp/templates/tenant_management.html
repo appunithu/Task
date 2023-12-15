@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tenant Management</title>
+</head>
+<body>
+    <h1>Tenant Management</h1>
+    <ul>
+        {% for tenant in tenants %}
+            <li><a href="{% url 'tenant_profile' tenant.id %}">{{ tenant.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

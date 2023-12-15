@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ property.name }} Profile</title>
+</head>
+<body>
+    <h1>{{ property.name }} - Property Profile</h1>
+    <p><strong>Address:</strong> {{ property.address }}</p>
+    <p><strong>Location:</strong> {{ property.location }}</p>
+    <p><strong>Features:</strong> {{ property.features }}</p>
+
+    <h2>Units:</h2>
+    <ul>
+        {% for unit in units %}
+            <li>
+                <strong>Type:</strong> {{ unit.get_unit_type_display }} |
+                <strong>Rent Cost:</strong> ${{ unit.rent_cost }} |
+                <strong>Tenants:</strong>
+                {% for tenant in tenants %}
+                    {% if tenant.unit == unit %}
+                        {{ tenant.name }},
+                    {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
